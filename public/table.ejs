@@ -1,0 +1,42 @@
+<!-- views/table.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/css/table.css">
+    <title>Lista de Pacientes</title>
+</head>
+<body>
+    <h2>Lista de Pacientes</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Autor</th>
+                <th>Clínica</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < patients.length; i++) { %>
+                <tr>
+                    <td><%= patients[i].nome %></td>
+                    <td><%= patients[i].codigo %></td>
+                    <td><%= patients[i].autor %></td>
+                    <td><%= patients[i].clinica %></td>
+                    <td>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="patientId" value="<%= patients[i].id %>">
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

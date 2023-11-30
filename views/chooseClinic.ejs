@@ -1,0 +1,28 @@
+<!-- views/chooseClinic.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/css/forms.css">
+</head>
+<body>
+    <h2>Escolha a Clínica</h>
+
+    <form action="/clinic" method="post">
+        <label for="clinic">Selecione a Clínica:</label>
+        <select id="clinic" name="clinic">
+            <option value=".">Escolha uma Opção:</option>
+            <option value="Clinica AZ Radiologia">Clinica AZ Radiologia</option>
+            <option value="Clinica RR Imagens">Clinica RR Imagens</option>
+            <option value="Clinica Serraro">Clinica Serraro</option>
+
+        </select>
+
+        <button type="submit">Continuar</button>
+        <a href="/view-all-clinics">Visualizar Todas as Clínicas</a>
+
+    </form>
+</body>
+</html>

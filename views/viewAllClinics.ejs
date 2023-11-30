@@ -1,0 +1,43 @@
+<!-- views/viewAllClinics.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/css/clinicView.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/table.css">
+    <title>Visualizar Todas as Clínicas</title>
+</head>
+<body>
+    <h2>Visualizar Todas as Clínicas</h2>
+
+    <% clinicData.forEach(clinic => { %>
+        <h3><%= clinic.clinic %></h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Autor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (clinic.patients && clinic.patients.length > 0) { %>
+                    <% clinic.patients.forEach(patient => { %>
+                        <tr>
+                            <td><%= patient.nome %></td>
+                            <td><%= patient.codigo %></td>
+                            <td><%= patient.autor %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="3">Nenhum paciente encontrado.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% }); %>
+</body>
+</html>

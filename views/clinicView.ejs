@@ -1,0 +1,33 @@
+<!-- views/clinicView.ejs -->
+<% console.log('clinicPatients:', clinicPatients); %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/css/clinicView.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/table.css">
+  
+    <title>Visualização da Clínica</title>
+    
+</head>
+
+
+<body>
+    <% if (clinicPatients && clinicPatients.length > 0) { %>
+        <!-- Adicione a tabela de pacientes da clínica aqui -->
+        <%- include('table', { patients: clinicPatients }) %>
+    <% } else { %>
+        <p>Nenhum paciente disponível.</p>
+    <% } %>
+    
+    <h2>Visualização da Clínica - <%= clinic %></h2>
+    <p>Número de pacientes: <%= clinicPatients.length %></p>
+
+    <!-- Adicione a tabela de pacientes da clínica aqui -->
+    <%- include('table', { patients: clinicPatients }) %>
+    <a href="/choose-clinic">Retornar para a escolha da clínica</a>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/css/forms.css">
+    <title>Formulário da Clínica</title>
+    
+</head>
+<body>
+    <h2>Formulário da Clínica AZ Radiologia</h2>
+    
+    <% if (clinic) { %>
+        <form action="/submit" method="post">
+            <input type="hidden" name="clinic" value="<%= clinic %>">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" required>
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
+
+            <label for="clinica">Clínica:</label>
+            <input type="text" id="clinica" name="clinica" value="<%= clinic %>" required readonly>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+    <% } else { %>
+        <p>Clínica inválida.</p>
+    <% } %>
+</body>
+</html>
